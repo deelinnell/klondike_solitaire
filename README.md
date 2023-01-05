@@ -1,1 +1,1 @@
-# klondike_solitaire
+# solitaire
