@@ -39,25 +39,10 @@ let moves = 0;
 let score = 0;
 let passes = 0;
 
-const columns = [];
-for (let col in board) {
-    columns.push(board[col]);
-}
-
-const columnsIds = [];
-for (let col in board) {
-    columnsIds.push(col);
-}
-
-const foundationArrays = [];
-for (let suit in foundations) {
-    foundationArrays.push(foundations[suit]);
-}
-
-const foundationSuits = [];
-for (let suit in foundations) {
-    foundationSuits.push(suit);
-}
+const columnsIds = Object.keys(board);
+const columns = Object.values(board);
+const foundationSuits = Object.keys(foundations);
+const foundationArrays = Object.values(foundations);
 
 let stockdown = [];
 let stockup = [];
@@ -73,14 +58,14 @@ const stockupId = d.getElementById('stockup');
 stockId.appendChild(stockdownId);
 stockId.appendChild(stockupId);
 
-//*** DEAL STOCK ***//
+//===== DEAL STOCK =====//
 
 stockdownId.addEventListener('click', () => dealStock());
 
 function dealStock() {
     const down = stockdown;
     let stockCards = [];
-
+    // Hard mode find if 1, 2 or 3 cards left to flip.
     if (!easyMode) {
         if (down.length === 1) {
             stockCards.push(down.pop());
@@ -95,14 +80,14 @@ function dealStock() {
             faceupStockCards(stockCards);
         }
     }
-
+    // Easy mode always flip 1 card.
     if (easyMode) {
         stockCards.push(down.pop());
         faceupStockCards(stockCards);
     }
 
     getStock();
-
+    // Changed displayed number of cardbacks if < 3.
     if (down.length === 1) {
         d.getElementById('stockdown2').classList.remove('cardback', 'cardback' + theme);
         d.getElementById('stockdown3').classList.remove('cardback', 'cardback' + theme);
@@ -111,7 +96,7 @@ function dealStock() {
     if (down.length === 2) {
         d.getElementById('stockdown3').classList.remove('cardback', 'cardback' + theme);
     }
-
+    // If no cards remaining, add reset button.
     if (down.length === 0) {
         cardBackRemove('cardback');
         cardBackRemove('cardback' + theme);
@@ -142,7 +127,7 @@ function getStock() {
     const up = stockup;
     let newStockCards = [];
     let num = '';
-
+    // Find top 3 cards of faceup stock.
     if (up.length === 0) {
         return;
     }
@@ -166,7 +151,7 @@ function fillStock() {
         stockdown = stockup.splice(0, stockup.length).reverse();
 
         if (stockdown.length === 0) return;
-
+        // Resets facedown stock pile.
         stockupId.replaceChildren('');
         stockId.removeChild(d.getElementById('reset'));
         cardBackAdd('cardback');
@@ -187,10 +172,10 @@ function fillStock() {
     }
 }
 
-//*** FIND MATCH, STOCK ***//
+//===== FIND MATCH, STOCK =====//
 
 function stockOnclick(array, num) {
-
+    // Add onclick event to right most faceup stock card.
     stockupId.replaceChildren(...array.map((card, index) => card.getHTML(0, 'col' + (index + num))));
     let card = array[array.length - 1];
     d.getElementById(card.value + card.suit).addEventListener('click', () => findMatchStock(card));
@@ -199,7 +184,7 @@ function stockOnclick(array, num) {
 function findMatchStock(clickedCard) {
 
     if (foundations[clickedCard.suit].length === valuePairs[clickedCard.value] - 1) {
-
+        // Find if stock card matches any foundation spaces.
         stockupId.removeChild(d.getElementById(clickedCard.value + clickedCard.suit));
 
         foundations[clickedCard.suit].push(stockup.pop());
@@ -216,6 +201,7 @@ function findMatchStock(clickedCard) {
     const matchingCard = findMatchingCard(clickedCard);
 
     if (matchingCard) {
+        // Find if stock card matches any front row cards on board.
         removeCards(columns, columnsIds);
 
         let matchingArrayIndex = columns.map(array => array.includes(matchingCard)).indexOf(true);
@@ -228,7 +214,7 @@ function findMatchStock(clickedCard) {
     }
 
     if (clickedCard.value === 'K') {
-
+        // Find if stock card is a king and there's an empty board space.
         const emptyColumn = columns.map(array => array.length === 0).indexOf(true);
 
         if (emptyColumn >= 0) {
@@ -243,6 +229,7 @@ function findMatchStock(clickedCard) {
 }
 
 function renderAfterStock() {
+    // Reset board after found match.
     getStock();
     renderCards();
     incrementMoves();
@@ -252,7 +239,7 @@ function renderAfterStock() {
 //*** FIND MATCH, BOARD ***//
 
 function boardOnclick() {
-
+    // Add onclick event to all face up cards on board.
     getFaceupCards().map((card) => {
 
         d.getElementById(card.value + card.suit).addEventListener('click', () => {
@@ -268,7 +255,7 @@ function findMatchBoard(clickedCard, clickedArrayIndex) {
     const clickedCardIndex = clickedArray.indexOf(clickedCard);
 
     if (foundations[clickedCard.suit].length === valuePairs[clickedCard.value] - 1) {
-
+        // Find if clicked card matches any foundation spaces.
         if (clickedCardIndex + 1 === clickedArray.length) {
             removeCards(columns, columnsIds);
 
@@ -285,6 +272,7 @@ function findMatchBoard(clickedCard, clickedArrayIndex) {
     const matchingCard = findMatchingCard(clickedCard);
 
     if (matchingCard) {
+        // Find if clicked card matches any front row cards on board.
         removeCards(columns, columnsIds);
 
         const matchingArrayIndex = columns.map(array => array.includes(matchingCard)).indexOf(true);
@@ -295,7 +283,7 @@ function findMatchBoard(clickedCard, clickedArrayIndex) {
     }
 
     if (clickedCard.value === 'K') {
-
+        // Find if clicked card is a king and there's an empty board space.
         const emptyColumn = columns.map(array => array.length === 0).indexOf(true);
 
         if (emptyColumn >= 0) {
@@ -311,7 +299,7 @@ function findMatchBoard(clickedCard, clickedArrayIndex) {
 function findMatchingCard(clicked) {
 
     const valueMatches = getFrontCards(columns).filter(card => valuePairs[card.value] === valuePairs[clicked.value] + 1);
-
+    // Returns clicked card object if a matching card is found.
     return valueMatches.filter(card => {
         if (clicked.color === 'black') {
             return card.color === 'red';
@@ -322,6 +310,7 @@ function findMatchingCard(clicked) {
 }
 
 function newFaceupCard(array) {
+    // Turns front row cards faceup if not already.
     if (array.length > 0 && array[array.length - 1].faceup === false) {
         let newFaceupCard = array[array.length - 1];
         turnFaceup(newFaceupCard);
@@ -330,6 +319,7 @@ function newFaceupCard(array) {
 }
 
 function renderAfterBoard(array) {
+    // Resets board after found match.
     newFaceupCard(array);
     renderCards();
     incrementMoves();
@@ -339,6 +329,7 @@ function renderAfterBoard(array) {
 //*** FIND MATCH, FOUNDATIONS ***//
 
 function foundationOnclick() {
+    // Adds onclick event to front cards of foundations.
     getFrontCards(foundationArrays).map(card => {
         d.getElementById(card.value + card.suit).addEventListener('click', () => {
             findMatchFoundation(card);
@@ -351,6 +342,7 @@ function findMatchFoundation(clickedCard) {
     const matchingCard = findMatchingCard(clickedCard);
 
     if (matchingCard) {
+        // Find if foundation card matches any front row cards on board.
         removeCards(columns, columnsIds);
         removeCards(foundationArrays, foundationSuits);
 
@@ -362,7 +354,7 @@ function findMatchFoundation(clickedCard) {
     }
 
     if (clickedCard.value === 'K') {
-
+        // Find if foundation card is king and there's an empty board space.
         const emptyColumn = columns.map(array => array.length === 0).indexOf(true);
 
         if (emptyColumn >= 0) {
@@ -378,13 +370,14 @@ function findMatchFoundation(clickedCard) {
 }
 
 function renderAfterFoundation() {
+    // Resets board after match.
     renderFoundations();
     renderCards();
     incrementMoves();
     return;
 }
 
-//*** RENDER FUNCTIONS ***//
+//===== RENDER FUNCTIONS =====//
 
 function renderCards() {
     columns.map((array, index) => loopArrays(array, index));
@@ -416,7 +409,7 @@ function removeArrays(array, index, id) {
     }
 }
 
-//*** MISC FUNCTIONS ***//
+//===== MISC FUNCTIONS =====//
 
 function incrementMoves() {
     moves += 1;
@@ -452,7 +445,7 @@ function win() {
     }
 }
 
-//*** GAME START ***//
+//===== GAME START =====//
 
 function startGame() {
     const deck = new Deck();
@@ -496,7 +489,7 @@ function newGame() {
     startGame();
 }
 
-//*** MODAL ***//
+//===== MODAL =====//
 
 const startNew = d.getElementById('newgame');
 const modalNew = d.getElementById('main-modal');
@@ -543,7 +536,7 @@ hardGame.onclick = () => {
     newGame();
 }
 
-//*** THEMES ***//
+//===== THEMES =====//
 
 d.getElementById('container-brick').onclick = () => removeTheme('-brick');
 d.getElementById('container-wave').onclick = () => removeTheme('-wave');

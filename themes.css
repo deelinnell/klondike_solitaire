@@ -143,6 +143,10 @@
     color: white;
     text-shadow: 2px 2px 2px rgb(75, 13, 13);
 }
+.newgame-brick:hover #star {
+    text-shadow: -2px 2px 2px rgb(75, 13, 13);
+    transform: rotateY(180deg);
+}
 .newtext-brick {
     text-shadow: 2px 2px 2px rgb(75, 13, 13);
 }
@@ -290,6 +294,10 @@
 .newgame-wave {
     color: white;
     text-shadow: 2px 2px 2px #0b2f52;
+}
+.newgame-wave:hover #star {
+    text-shadow: -2px 2px 2px #0b2f52;
+    transform: rotateY(180deg);
 }
 .newtext-wave {
     text-shadow: 2px 2px 2px #0b2f52;
@@ -454,6 +462,10 @@
 .newgame-checker {
     color: white;
     text-shadow: 2px 2px 2px black;
+}
+.newgame-checker:hover #star {
+    text-shadow: 2px 2px 2px black;
+    transform: rotateY(180deg);
 }
 .newtext-checker {
     text-shadow: 2px 2px 2px #111;

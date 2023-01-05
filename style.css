@@ -459,10 +459,7 @@ body {
 
 #star {
   color: white;
-  transition: 0.3s ease-in-out;
-}
-#newgame:hover #star {
-  transform: translate(5px, 4px) rotate(73deg);
+  transition: 0.5s ease-in-out;
 }
 
 #newgame > span {
