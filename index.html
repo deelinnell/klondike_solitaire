@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme_modal.css">
+    <link rel="stylesheet" href="themes.css">
+        <title>Solitaire</title>
+</head>
+<body>
+    <div class="header" id="header">
+        <p id="title">Solitaire</p>
+        <div class="score-container" id="score-container">
+            <div class="header-container">
+                <p class="text">Moves:</p><p class="text" id="moves"></p>
+            </div>
+            <div class="header-container">
+                <p class="text">Score:</p><p class="text" id="score"></p>
+            </div>
+        </div>
+    </div>
+    <div class="stockrow">
+        <div class="stock" id="stock">
+            <div id="stockdown3"></div>
+            <div id="stockdown2"></div>
+            <div id="stockdown"></div>
+            <div id="stockup"></div>
+        </div>
+        <div class="foundation-container" id="foundations">
+            <div class="foundation" id="♥">♥</div>
+            <div class="foundation" id="♣">♣</div>
+            <div class="foundation" id="♦">♦</div>
+            <div class="foundation" id="♠">♠</div>
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="sidebar" id="sidebar">
+                <button class="theme-btn" id="theme-btn">THEME</button>
+                <div class="dropdown-content"></div>
+                <div id="newgame"><div id="star">&#9733;</div><span id="newtext">NEW</span></div>
+        </div>
+        <div class="column" id="column0"></div>
+        <div class="column" id="column1"></div>
+        <div class="column" id="column2"></div>
+        <div class="column" id="column3"></div>
+        <div class="column" id="column4"></div>
+        <div class="column" id="column5"></div>
+        <div class="column" id="column6"></div>
+        <div class="modal" id="main-modal">
+            <div class="modal-content">
+                <span class="close-new">&times;</span>
+                    <p>Start a new game?</p>
+                    <div class="start-container">
+                        <div class="start-background" id="start-bg">
+                            <div class="start-background2" id="start-bg2"></div>
+                        </div>
+                            <button id="easy-game">♥♦<p>EASY</p></button>
+                            <button id="hard-game">♣♠<p>HARD</p></button>
+                            <button class="small-card start" id="easy1"></button>  
+                            <button class="small-card start" id="easy2"></button>
+                            <button class="small-card start" id="easy3"><p>♥</p></button>
+                            <button class="small-card start" id="easy4"><p>♣</p></button>
+                            <button class="small-card start" id="hard1"></button>
+                            <button class="small-card start" id="hard2"></button>
+                            <button class="small-card start" id="hard3"><p>♠</p></button>
+                            <button class="small-card start" id="hard4"><p>♦</p></button>
+                    </div>
+            </div>
+        </div>
+        <div class="modal" id="theme-modal">
+            <div class="modal-content-theme">
+                <span class="close-theme">&times;</span>
+                    <p>Change theme?</p>
+                    <div class="modal-buttons-theme">
+                        <div class="small-card-container" id="container-brick">
+                            <div class="small-card-background" id="background-brick">
+                                <button class="small-card brick" id="brick1"></button>
+                                <button class="small-card brick" id="brick2"></button>
+                                <button class="small-card brick" id="brick3"><p>♣</p></button>
+                                <button class="small-card brick" id="brick4"><p>♥</p></button>
+                            </div>
+                        </div>
+                        <div class="small-card-container" id="container-wave">
+                            <div class="small-card-background" id="background-wave">
+                                <button class="small-card wave" id="wave1"></button>
+                                <button class="small-card wave" id="wave2"></button>
+                                <button class="small-card wave" id="wave3"></button>
+                                <button class="small-card wave" id="wave4"><p>♠</p></button>
+                                <button class="small-card wave" id="wave5"><p>♦</p></button>
+                            </div>
+                        </div>
+                        <div class="small-card-container" id="container-checker">
+                            <div class="small-card-background" id="background-checker">
+                                <button class="small-card checker" id="checker1"></button>
+                                <button class="small-card checker" id="checker2"></button>
+                                <button class="small-card checker" id="checker3"></button>
+                                <button class="small-card checker" id="checker4"><p>♠</p></button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

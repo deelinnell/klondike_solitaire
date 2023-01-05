@@ -1,0 +1,370 @@
+/*** THEME MODAL ***/
+
+.modal-content-theme {
+  background-color: rgba(247, 247, 247, 0.90);
+  margin: 230px auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: 500px;
+  border-radius: 15px 20px 15px 0;
+  box-shadow: 2px 2px 5px black;
+}
+.modal-content-theme > p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  padding-left: 15px;
+  font-size: 24px;
+  height: 50px;
+}
+
+.modal-buttons-theme {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.small-card-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 150px;
+  height: 100px;
+  border-radius: 10px 10px 10px 0;
+}
+.small-card-container:hover {
+  cursor: pointer;
+}
+
+#container-brick {
+  background-color: #e5e5f7;
+  background-size: 20px 20px;
+  background-image:  repeating-linear-gradient(to right, #176317, #176317 1px, #0b420b 1px, #0b420b);
+  border-right: 2px ridge #289628;
+  border-bottom: 2px ridge #289628;
+}
+#container-brick:hover {
+  box-shadow: 1px 1px 2px green;
+}
+
+#container-wave {
+  background-color: #9c7e28;
+  background-image: radial-gradient(#251805 0.75px, #9c7e28 0.75px);
+  background-size: 15px 15px;
+  border-right: 2px ridge #be9c3d;
+  border-bottom: 2px ridge #be9c3d;
+}
+#container-wave:hover {
+  box-shadow: 1px 1px 4px #968703;
+}
+
+#container-checker {
+  background-color: #282828;
+  background-image:  linear-gradient(#323232 3px, transparent 3px), linear-gradient(90deg, #323232 3px, transparent 3px), linear-gradient(#323232 1.5px, transparent 1.5px), linear-gradient(90deg, #323232 1.5px, #282828 1.5px);
+  background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+  background-position: -3px -3px, -3px -3px, -1.5px -1.5px, -1.5px -1.5px;
+  border-right: 2px ridge #555;
+  border-bottom: 2px ridge #555;
+}
+#container-checker:hover {
+  box-shadow: 1px 1px 4px #793535;
+}
+
+#container-brick:hover #brick3 {
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  background-color: white;
+  border: 1px solid black;
+  right: 85px;
+  bottom: 35px;
+  transform: rotate(-10deg);
+}
+#container-brick:hover #brick3 > p {
+  visibility: visible;
+  color: #063b06;
+}
+#container-brick:hover #brick3::after {
+  position: absolute;
+  content: "A♣";
+  font-size: 12px;
+  color: #063b06;
+  bottom: 1px;
+  right: 1px;
+  transform: rotate(180deg);
+}
+#container-brick:hover #brick3::before {
+  position: absolute;
+  content: "A♣";
+  font-size: 12px;
+  color: #063b06;
+  top: 1px;
+  left: 1px;
+}
+
+#container-brick:hover #brick4 {
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  background-color: white;
+  border: 1px solid black;
+  transform: rotate(-5deg);
+  right: 40px;
+  bottom: 30px;
+}
+#container-brick:hover #brick4 > p {
+  visibility: visible;
+  color: #d60202;
+}
+#container-brick:hover #brick4::after {
+  position: absolute;
+  content: "Q♥";
+  font-size: 12px;
+  color: #d60202;
+}
+#container-brick:hover #brick4::before {
+  position: absolute;
+  content: "Q♥";
+  font-size: 12px;
+  color: #d60202;
+}
+#container-brick:hover #brick4::before {
+  top: 1px;
+  left: 1px;
+}
+#container-brick:hover #brick4::after {
+  bottom: 1px;
+  right: 1px;
+  transform: rotate(180deg);
+}
+
+#container-wave:hover #wave4 {
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  background-color: white;
+  border: 1px solid black;
+  right: 15px;
+  bottom: 25px;
+  transform: rotate(15deg);
+}
+#container-wave:hover #wave4 > p {
+  visibility: visible;
+  color: #9c7e28;
+}
+#container-wave:hover #wave4::after {
+  position: absolute;
+  content: "K♠";
+  font-size: 12px;
+  color: #9c7e28;
+}
+#container-wave:hover #wave4::before {
+  position: absolute;
+  content: "K♠";
+  font-size: 12px;
+  color: #9c7e28;
+}
+#container-wave:hover #wave4::before {
+  top: 1px;
+  left: 1px;
+}
+#container-wave:hover #wave4::after {
+  bottom: 1px;
+  right: 1px;
+  transform: rotate(180deg);
+}
+
+#container-wave:hover #wave5 {
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  background-color: white;
+  border: 1px solid black;
+  right: 95px;
+  bottom: 15px;
+  transform: rotate(-30deg);
+}
+#container-wave:hover #wave5 > p {
+  visibility: visible;
+  color: #164673;
+}
+#container-wave:hover #wave5::after {
+  position: absolute;
+  content: "J♦";
+  font-size: 12px;
+  color: #164673;
+}
+#container-wave:hover #wave5::before {
+  position: absolute;
+  content: "J♦";
+  font-size: 12px;
+  color: #164673;
+}
+#container-wave:hover #wave5::before {
+  top: 1px;
+  left: 1px;
+}
+#container-wave:hover #wave5::after {
+  bottom: 1px;
+  right: 1px;
+  transform: rotate(180deg);
+}
+
+#container-checker:hover #checker4 {
+  right: 50px;
+  bottom: 28px;
+  background-size: 5px 5px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  background-color: white;
+  border: 1px solid black;
+  color: #111;
+  transform: rotate(-10deg);
+}
+
+#container-checker:hover #checker4 > p {
+  visibility: visible;
+}
+
+#container-checker:hover #checker4::after {
+  position: absolute;
+  content: "A♠";
+  font-size: 12px;
+  color: #111;
+  bottom: 1px;
+  right: 1px;
+  transform: rotate(180deg);
+}
+#container-checker:hover #checker4::before {
+  position: absolute;
+  content: "A♠";
+  font-size: 12px;
+  color: #111;
+  top: 1px;
+  left: 1px;
+}
+
+.small-card-background {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 90px;
+  height: 60px;
+  border-radius: 5px;
+  align-self: flex-end;
+  border-radius: 20px 0px 10px 0px;
+}
+
+#background-brick{
+  background: repeating-linear-gradient( -45deg, #0b420b, #0b420b, #136413 5px, #176317 25px );
+}
+#background-wave{
+  background-color: #164673;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #164673 15px ), repeating-linear-gradient( #204a9255, #204a92 );
+}
+#background-checker{
+  background-color: #646464;
+  background-image:  linear-gradient(#7b7878 1.5px, transparent 1.5px), linear-gradient(to right, #7b7878 1.5px, #646464 1.5px);
+  background-size: 30px 30px;
+}
+
+.small-card {
+  position: absolute;
+  align-self: flex-end;
+  width: 35px;
+  height: 50px;
+  right: 0px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+.small-card > p {
+  visibility: hidden;
+  margin: auto;
+  font-size: 28px;
+  color: black;
+}
+
+.small-card:hover {
+  cursor: pointer;
+}
+
+.brick {
+  background-color: #561206;
+  background-image:  linear-gradient(30deg, #da1e1e 12%, transparent 12.5%, transparent 87%, #da1e1e 87.5%, #da1e1e), linear-gradient(150deg, #da1e1e 12%, transparent 12.5%, transparent 87%, #da1e1e 87.5%, #da1e1e), linear-gradient(30deg, #da1e1e 12%, transparent 12.5%, transparent 87%, #da1e1e 87.5%, #da1e1e), linear-gradient(150deg, #da1e1e 12%, transparent 12.5%, transparent 87%, #da1e1e 87.5%, #da1e1e), linear-gradient(60deg, #da1e1e77 25%, transparent 25.5%, transparent 75%, #da1e1e77 75%, #da1e1e77), linear-gradient(60deg, #da1e1e77 25%, transparent 25.5%, transparent 75%, #da1e1e77 75%, #da1e1e77);
+  background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+  border: 1px solid #5c0404;
+}
+.wave {
+  background-color: #978a08;
+  background-image: radial-gradient( ellipse farthest-corner at 15px 15px , #c5b62b, #c5bb2b 50%, #978a08 50%);
+  background-size: 15px 15px;
+  border: 1px solid #f8eb56;
+}
+.checker {
+  background-color: #7c0000;
+  background-image:  linear-gradient(135deg, #000000 25%, transparent 25%), linear-gradient(225deg, #000000 25%, transparent 25%), linear-gradient(45deg, #000000 25%, transparent 25%), linear-gradient(315deg, #000000 25%, #7c0000 25%);
+  background-position:  15px 0, 15px 0, 0 0, 0 0;
+  background-size: 15px 15px;
+  background-repeat: repeat;
+  border: 1px solid #9b0909;
+}
+#brick1 {
+  right: 70px;
+  bottom: 10px;
+  transform: rotate(60deg);
+}
+#brick2 {
+  right: 20px;
+  bottom: 15px;
+  transform: rotate(10deg);
+}
+#brick3 {
+  right: 95px;
+  bottom: 30px;
+  transform: rotate(10deg);
+}
+#brick4 {
+  right: 40px;
+  bottom: 35px;
+  transform: rotate(-20deg);
+}
+#wave1 {
+  right: 30px;
+  bottom: 10px;
+  transform: rotate(-10deg);
+}
+#wave2 {
+  right: 20px;
+  bottom: 25px;
+  transform: rotate(-20deg);
+}
+#wave3 {
+  right: 90px;
+  bottom: 35px;
+  transform: rotate(10deg);
+}
+#wave4 {
+  right: 10px;
+  bottom: 35px;
+  transform: rotate(5deg);
+}
+#wave5 {
+  right: 95px;
+  bottom: 5px;
+  transform: rotate(-45deg);
+}
+#checker1 {
+  right: 60px;
+  bottom: 10px;
+  transform: rotate(40deg);
+}
+#checker2 {
+  right: 20px;
+  bottom: 15px;
+  transform: rotate(20deg);
+}
+#checker3 {
+  right: 80px;
+  bottom: 35px;
+  transform: rotate(-10deg);
+}
+#checker4 {
+  right: 40px;
+  bottom: 35px;
+  transform: rotate(20deg);
+}
