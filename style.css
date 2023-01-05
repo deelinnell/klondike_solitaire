@@ -448,6 +448,7 @@ body {
   margin: 0px;
   z-index: 999;
   align-items: center;
+  color: white;
   border-bottom: 1px solid white;
   transition: 0.3s ease-in-out;
 }
@@ -457,6 +458,7 @@ body {
 }
 
 #star {
+  color: white;
   transition: 0.3s ease-in-out;
 }
 #newgame:hover #star {
