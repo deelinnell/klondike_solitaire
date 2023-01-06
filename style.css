@@ -53,6 +53,7 @@ body {
   top: 10px;
   font-size: 102px;
   text-align: center;
+  user-select: none;
 }
 .reset:hover {
   cursor: pointer;
