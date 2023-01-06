@@ -87,6 +87,21 @@ body {
   top: 10px;
 }
 
+#stockup div.card:nth-child(1) {
+  z-index: 800;
+}
+#stockup div.card:nth-child(2) {
+  z-index: 700;
+}
+#stockup div.card:nth-child(3) {
+  z-index: 600;
+}
+
+#stockup div.card:nth-child(2):hover,
+#stockup div.card:nth-child(3):hover {
+  outline: none;
+}
+
 /*** FOUNDATIONS ***/
 
 .foundation-container {
@@ -106,6 +121,53 @@ body {
 .foundation > .card {
   box-shadow: none;
   top: 13px;
+}
+
+/*** CARDS ***/
+
+.card {
+  position: absolute;
+  height: 120px;
+  width: 80px;
+  background-color: #ffffff;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
+  border: 1px solid #333;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  box-shadow: 0 5px 10px #111;
+  user-select: none;
+}
+.card:hover {
+  cursor: pointer;
+  outline: 1px solid white;
+}
+
+.cardback {
+  position: absolute;
+  height: 120px;
+  width: 80px;
+  border-radius: .5rem;
+  box-shadow: 0 5px 10px #111;
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  content: attr(id);
+  font-size: 1.5rem;
+}
+.card::before {
+  top: 2px;
+  left: 6px;
+}
+.card::after {
+  bottom: 2px;
+  right: 6px;
+  transform: rotate(180deg);
 }
 
 /*** MODAL ***/
@@ -367,52 +429,6 @@ body {
   cursor: pointer;
 }
 
-/*** CARDS ***/
-
-.card {
-  position: absolute;
-  height: 120px;
-  width: 80px;
-  background-color: #ffffff;
-  background-size: 10px 10px;
-  background-image: repeating-linear-gradient(45deg, #00000010 0, #00000010 1px, #ffffff 0, #ffffff 50%);
-  border: 1px solid #333;
-  border-radius: .5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 60px;
-  box-shadow: 0 5px 10px #111;
-}
-.card:hover {
-  cursor: pointer;
-  outline: 1px solid white;
-}
-
-.cardback {
-  position: absolute;
-  height: 120px;
-  width: 80px;
-  border-radius: .5rem;
-  box-shadow: 0 5px 10px #111;
-}
-
-.card::before,
-.card::after {
-  position: absolute;
-  content: attr(id);
-  font-size: 1.5rem;
-}
-.card::before {
-  top: 2px;
-  left: 6px;
-}
-.card::after {
-  bottom: 2px;
-  right: 6px;
-  transform: rotate(180deg);
-}
-
 /*** SIDEBAR ***/
 
 .sidebar {
@@ -429,12 +445,12 @@ body {
   font-size: 20px;
   color: white;
   border-radius: 0 20px 20px 0;
-  transition: border-radius 0.8s, transform 0.5s ease-in-out;
+  transition: border-radius 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .theme-btn:hover {
   cursor: pointer;
   border-radius: 20px 20px 20px 20px;
-  transform: scaleX(1.125) scaleY(1.125);
+  transform: scaleX(1.2) scaleY(1.2);
 }
 
 #newgame {
@@ -456,6 +472,27 @@ body {
 }
 #newgame:hover {
   cursor: pointer;
+  animation-name: blink;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 #exclamation {
@@ -469,7 +506,45 @@ body {
 
 #star {
   color: white;
-  transition: transform 0.5s ease-in-out;
+}
+
+#newgame:hover #star {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  to {
+      transform: rotateY(0deg);
+  }
+  from {
+      transform: rotateY(360deg);
+  }
+}
+
+#star-1 {
+  bottom: 38px;
+  left: 34px;
+  transform: rotate(40deg);
+}
+
+#star-2 {
+  bottom: 38px;
+  left: 11px;
+  transform: rotate(-40deg);
+}
+
+#star-3 {
+  bottom: 18px;
+  left: 39px;
+  transform: rotate(120deg);
+}
+
+#star-4 {
+  bottom: 18px;
+  left: 7px;
+  transform: rotate(-120deg);
 }
 
 #newgame > span {
@@ -548,11 +623,11 @@ body {
   top: 415px;
 }
 .col0 {
-  left: -20px;
+  left: 50px;
 }
 .col1 {
   left: 15px;
 }
 .col2 {
-  left: 50px;
+  left: -20px;
 }

@@ -126,24 +126,21 @@ const reset = {
 function getStock() {
     const up = stockup;
     let newStockCards = [];
-    let num = '';
     // Find top 3 cards of faceup stock.
     if (up.length === 0) {
         return;
     }
     if (up.length === 1) {
-        num = 2;
         newStockCards = up.slice(up.length - 1, up.length);
     }
     if (up.length === 2) {
-        num = 1;
         newStockCards = up.slice(up.length - 2, up.length);
     }
     if (up.length > 2) {
         newStockCards = up.slice(up.length - 3, up.length);
     }
 
-    stockOnclick(newStockCards, num);
+    stockOnclick(newStockCards);
 }
 
 function fillStock() {
@@ -174,10 +171,10 @@ function fillStock() {
 
 //===== FIND MATCH, STOCK =====//
 
-function stockOnclick(array, num) {
+function stockOnclick(array) {
     // Add onclick event to right most faceup stock card.
-    stockupId.replaceChildren(...array.map((card, index) => card.getHTML(0, 'col' + (index + num))));
-    let card = array[array.length - 1];
+    stockupId.replaceChildren(...array.reverse().map((card, index) => card.getHTML(0, 'col' + index)));
+    let card = array[0];
     d.getElementById(card.value + card.suit).addEventListener('click', () => findMatchStock(card));
 }
 
