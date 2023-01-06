@@ -118,7 +118,7 @@ const reset = {
         const resetDiv = d.createElement('div');
         resetDiv.classList.add('reset', 'reset' + theme);
         resetDiv.setAttribute('id', 'reset');
-        resetDiv.innerHTML = '↺';
+        resetDiv.innerHTML = '↻';
         return resetDiv;
     }
 }
