@@ -386,6 +386,7 @@ body {
 }
 .card:hover {
   cursor: pointer;
+  outline: 1px solid white;
 }
 
 .cardback {
@@ -428,11 +429,12 @@ body {
   font-size: 20px;
   color: white;
   border-radius: 0 20px 20px 0;
-  transition: 0.3s ease-in-out;
+  transition: border-radius 0.8s, transform 0.5s ease-in-out;
 }
 .theme-btn:hover {
   cursor: pointer;
-  width: 110px;
+  border-radius: 20px 20px 20px 20px;
+  transform: scaleX(1.125) scaleY(1.125);
 }
 
 #newgame {
@@ -454,12 +456,20 @@ body {
 }
 #newgame:hover {
   cursor: pointer;
-  opacity: 0.9;
+}
+
+#exclamation {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+#newgame:hover #exclamation {
+  opacity: 1;
 }
 
 #star {
   color: white;
-  transition: 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 #newgame > span {
