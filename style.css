@@ -451,7 +451,7 @@ body {
 .theme-btn:hover {
   cursor: pointer;
   border-radius: 20px 20px 20px 20px;
-  transform: scaleX(1.2) scaleY(1.2);
+  transform: scaleX(1.15) scaleY(1.15);
 }
 
 #newgame {
