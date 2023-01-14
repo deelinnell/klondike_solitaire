@@ -69,23 +69,26 @@ function dealStock() {
     if (!easyMode) {
         if (down.length === 1) {
             stockCards.push(down.pop());
-            faceupStockCards(stockCards);
         }
         if (down.length === 2) {
             stockCards = down.splice(down.length - 2, 2);
-            faceupStockCards(stockCards);
+            if (passes > 0) {
+                stockCards.reverse()
+            }
         }
         if (down.length > 2) {
             stockCards = down.splice(down.length - 3, 3)
-            faceupStockCards(stockCards);
+            if (passes > 0) {
+                stockCards.reverse()
+            }
         }
     }
     // Easy mode always flip 1 card.
     if (easyMode) {
         stockCards.push(down.pop());
-        faceupStockCards(stockCards);
     }
 
+    faceupStockCards(stockCards);
     getStock();
     // Changed displayed number of cardbacks if < 3.
     if (down.length === 1) {
