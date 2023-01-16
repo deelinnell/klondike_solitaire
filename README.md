@@ -1,6 +1,6 @@
 ![solitaire-header](https://user-images.githubusercontent.com/61264144/212759348-949ffcd2-3340-4904-b272-5c135906e98c.png)
 
-I enjoyed playing solitaire on Windows as a kid. I'd usually play with the robot card back, but occasionally I'd pick the bat castle. I figured it would be good practice to recreate solitiare in javascript and make some themes / card backs with CSS. Originally I was looking for a tutorial in javascript, but it turns out there isn't much. The best I could find was written in C# and that wouldn't be much help. So I decided I'd attempt to build the game solo.
+I enjoyed playing solitaire on Windows as a kid. I'd usually play with the robot card back, but occasionally I'd pick the bat castle. I figured it would be good practice to recreate solitiare in javascript and make some themes / card backs with CSS. I was originally looking for a tutorial in javascript, but it turns out there isn't much. The best I could find was written in C# and that wouldn't be much help. So I decided I'd attempt to build the game solo.
 
 This was definitely the hardest thing I had done to date, at least from a javascript perspective. It took a lot of debugging and thinking outside the box, but I eventually finished it, and I officially fixed the last bug I'm aware of a couple days ago. I'm currently working on making the cards drag and drop, which is another challenge, but I think I have it mostly figured out.
 
